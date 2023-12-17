@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1320.0" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.AppGUIController">
+    <children>
+        <Label>Описание:</Label>
+        <TextField  fx:id="field" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="200.0" />
+        <Button fx:id="button" onAction="#handleAction" text="Добавить" AnchorPane.leftAnchor="500.0" />
+        <Label AnchorPane.topAnchor="60.0">Тег:</Label>
+        <TextField fx:id="field2" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="60.0"/>
+        <Button fx:id="button2" onAction="#handleAction2" text="Удалить" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="60.0"/>
+        <Button fx:id="button3" onAction="#handleAction3" text="Баланс" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="180.0"/>
+        <Button fx:id="button4" onAction="#handleAction4" text="Подтаблица" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="240.0"/>
+        <Label AnchorPane.topAnchor="120.0">Категория:</Label>
+        <TextField fx:id="field3" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="120.0"/>
+        <Label AnchorPane.leftAnchor="800.0"  AnchorPane.topAnchor="120.0">Категория:</Label>
+        <TextField fx:id="field6" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="1000.0" AnchorPane.topAnchor="120.0"/>
+        <Label AnchorPane.leftAnchor="800.0"  AnchorPane.topAnchor="180.0">Дата (с):</Label>
+        <TextField fx:id="field7" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="1000.0" AnchorPane.topAnchor="180.0"/>
+        <Label AnchorPane.leftAnchor="800.0"  AnchorPane.topAnchor="240.0">Дата (до):</Label>
+        <TextField fx:id="field8" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="1000.0" AnchorPane.topAnchor="240.0"/>
+        <Label AnchorPane.topAnchor="180.0">Агент:</Label>
+        <TextField fx:id="field4" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="180.0"/>
+        <Label AnchorPane.topAnchor="240.0">Сумма:</Label>
+        <TextField fx:id="field5" minWidth="69.0" prefWidth="200.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="240.0"/>
+
+        <TableView fx:id="tableTransactions" layoutX="5.0" layoutY="300.0" prefHeight="424.0" prefWidth="1300.0">
+            <columns>
+                <!-- Колонки таблицы -->
+                <TableColumn prefWidth="80.0" text="№" fx:id="idColumn" />
+                <TableColumn prefWidth="220.0" text="Описание" fx:id="discriptionColumn" />
+                <TableColumn prefWidth="200.0" text="Дата" fx:id="dateColumn" />
+                <TableColumn prefWidth="150.0" text="Тег" fx:id="tagColumn" />
+                <TableColumn prefWidth="220.0" text="Категория" fx:id="catColumn" />
+                <TableColumn prefWidth="150.0" text="Агент" fx:id="agentColumn" />
+                <TableColumn prefWidth="220.0" text="Сумма" fx:id="amountColumn" />
+            </columns>
+        </TableView>
+
+    </children>
+    <stylesheets>
+        <URL value="@formstyle.css" />
+    </stylesheets>
+</AnchorPane>
