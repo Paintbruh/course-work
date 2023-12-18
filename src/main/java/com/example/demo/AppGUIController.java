@@ -66,7 +66,6 @@ public class AppGUIController implements Initializable {
     @FXML
     private void handleAction(ActionEvent event) throws IOException, ParseException {
         Table table = new Table();
-        // TextFiled から文字列を取得
         String description = field.getText();
         String tag = field2.getText();
         String cat = field3.getText();
@@ -84,12 +83,10 @@ public class AppGUIController implements Initializable {
         int row = tableTransactions.getSelectionModel().getSelectedIndex();
         table.deleteRecord(table.table[row].getId());
         transactionsData.remove(row);
-        //tableTransactions.getItems().remove(row);
     }
     @FXML
     private void handleAction4(ActionEvent event) throws IOException, ParseException {
         Table table = new Table();
-        // TextFiled から文字列を取得
         String text = field6.getText();
         String start = field7.getText();
         String finish = field8.getText();
@@ -98,7 +95,6 @@ public class AppGUIController implements Initializable {
     @FXML
     private void handleAction3(ActionEvent event) throws IOException, ParseException {
         Table table = new Table();
-        // TextFiled から文字列を取得
         String text = field6.getText();
         String start = field7.getText();
         String finish = field8.getText();
@@ -116,7 +112,6 @@ public class AppGUIController implements Initializable {
             throw new RuntimeException(e);
         }
 
-        // устанавливаем тип и значение которое должно хранится в колонке
         idColumn.setCellValueFactory(new PropertyValueFactory<Transaction, Integer>("id"));
         discriptionColumn.setCellValueFactory(new PropertyValueFactory<Transaction, String>("description"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<Transaction, String>("date"));
@@ -125,7 +120,6 @@ public class AppGUIController implements Initializable {
         agentColumn.setCellValueFactory(new PropertyValueFactory<Transaction, String>("agent"));
         amountColumn.setCellValueFactory(new PropertyValueFactory<Transaction, Float>("amount"));
 
-        // заполняем таблицу данными
         tableTransactions.setItems(transactionsData);
     }
 
