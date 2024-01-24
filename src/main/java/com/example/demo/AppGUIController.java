@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -73,9 +74,18 @@ public class AppGUIController implements Initializable {
         String amount = field5.getText();
         int id = table.freeId();
         Date date = new Date();
-        table.addRecord(id, description, date, tag, cat, agent, Float.parseFloat(amount));
+        try {
+            float am = Float.parseFloat(amount);
+            if (am < 0) {
+                System.out.println("Некорректный ввод.");
+            } else {
+                table.addRecord(id, description, date, tag, cat, agent, Float.parseFloat(amount));
 
-        transactionsData.add(table.table[table.getLen() - 1]);
+                transactionsData.add(table.table[table.getLen() - 1]);
+            }
+        } catch (NumberFormatException pe) {
+            System.out.println("Некорректный ввод.");
+        }
     }
     @FXML
     private void handleAction2(ActionEvent event) throws IOException, ParseException {
@@ -90,7 +100,18 @@ public class AppGUIController implements Initializable {
         String text = field6.getText();
         String start = field7.getText();
         String finish = field8.getText();
-        table.makeSubTable(text, start, finish);
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd hh:mm:ss a zzz");
+        try {
+            if (!start.equals("")) {
+                Date s = formatForDateNow.parse(start);
+            }
+            if (!finish.equals("")) {
+                Date f = formatForDateNow.parse(finish);
+            }
+            table.makeSubTable(text, start, finish);
+        } catch (ParseException pe) {
+            System.out.println("Некорректный формат даты.");
+        }
     }
     @FXML
     private void handleAction3(ActionEvent event) throws IOException, ParseException {
@@ -98,7 +119,18 @@ public class AppGUIController implements Initializable {
         String text = field6.getText();
         String start = field7.getText();
         String finish = field8.getText();
-        System.out.println(table.balance(text, start, finish));
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("E yyyy.MM.dd hh:mm:ss a zzz");
+        try {
+            if (!start.equals("")) {
+                Date s = formatForDateNow.parse(start);
+            }
+            if (!finish.equals("")) {
+                Date f = formatForDateNow.parse(finish);
+            }
+            System.out.println(table.balance(text, start, finish));
+        } catch (ParseException pe) {
+            System.out.println("Некорректный формат даты.");
+        }
     }
 
     @FXML

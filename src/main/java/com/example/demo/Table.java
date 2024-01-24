@@ -69,7 +69,7 @@ public class Table {
         String path = "input.xlsx";
         er.write(path, this.table);
     }
-    //
+
     public void makeSubTable(String category, String start, String finish) throws IOException, ParseException {
         int count = 0;
         ExcelReader er = new ExcelReader();

@@ -27,7 +27,6 @@ public class AppGUI extends Application{
     public static void main(String[] args) throws IOException, ParseException {
         Table table = new Table();
         Date date = new Date();
-        //table.addRecord(table.freeId(), "description", date, "tag", "cat", "agent", 100500);
         table.makeSubTable("cat0", "пт 2023.12.14 04:11:11 PM MSK", "пт 2023.12.17 04:11:11 PM MSK");
         System.out.println(table.balance("cat0", "пт 2023.12.14 04:11:11 PM MSK", "пт 2023.12.17 04:11:11 PM MSK"));
         HashMap<String, Integer> st = table.stat();
